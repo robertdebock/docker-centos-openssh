@@ -8,6 +8,9 @@ RUN yum -y install openssh openssh-server && \
     yum -y clean all
 RUN /usr/bin/cp -af /etc/localtime /var/empty/sshd/etc
 
+VOLUME /root
+VOLUME /etc/sshd
+
 ADD sshd.conf /etc/ssh/sshd.conf
 
 CMD /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''&&  \
@@ -18,6 +21,6 @@ CMD /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''&&
     /usr/bin/cat /root/.ssh/id_dsa && \
     /usr/bin/echo "Please save the printed private RSA key and login using:" && \
     /usr/bin/echo "\"ssh -i \${savedkey} root@\${ipaddress}\"" && \
-    /usr/sbin/sshd -d
+    /usr/sbin/sshd -D
 
 EXPOSE 22
