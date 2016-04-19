@@ -10,13 +10,13 @@ It's quite easy to start a container:
 
     docker run -P -n docker-centos-openssh robertdebock/docker-centos-openssh
     
-A private key will be displayed, copy-pasts-save it.
+A private key will be displayed, copy-pasts-save it, set the permissions to 0600.
 
 Find out what port Docker has connected to the container:
 
     docker port docker-centos-openssh
 
-Find out the IP address using docker-machine.
+Find out the IP address using, possibly using docker-machine.
 
     docker-machine ls
 
