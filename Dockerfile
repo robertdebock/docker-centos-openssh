@@ -9,9 +9,7 @@ RUN yum -y install openssh openssh-server && \
 
 ADD sshd.conf /etc/ssh/sshd.conf
 
-CMD /usr/bin/ssh-keygen -q -t rsa1 -f /etc/ssh/ssh_host_key -C '' -N '' && \
-    /usr/bin/ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N '' && \
-    /usr/bin/ssh-keygen -q -t dsa -f /etc/ssh/ssh_host_dsa_key -C '' -N '' && \
+CMD /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N && \
     /usr/bin/cp -af /etc/localtime /var/empty/sshd/etc && \
     /usr/sbin/sshd -D
 
