@@ -8,10 +8,20 @@ This container will generate new keys (host and user) at startup.
 ## Running the container.
 It's quite easy to start a container:
 
-    docker run -p 1234:22 robertdebock/docker-centos-openssh
+    docker run -P -n docker-centos-openssh robertdebock/docker-centos-openssh
+    
+A private key will be displayed, copy-pasts-save it.
 
-A private key will be displayed, copy-pasts-save it and connect to the container:
+Find out what port Docker has connected to the container:
 
-    ssh -p 1234 -i ${savedkey} root@${ip}
+    docker port docker-centos-openssh
+
+Find out the IP address using docker-machine.
+
+    docker-machine ls
+
+And connect to the container:
+
+    ssh -p ${port} -i ${savedkey} root@${ip}
 
 That ${ip} depends on where the container is running.
