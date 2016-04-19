@@ -13,6 +13,10 @@ ADD sshd.conf /etc/ssh/sshd.conf
 CMD /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''&&  \
     /usr/bin/ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''&&  \
     /usr/bin/ssh-keygen -q -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -C '' -N ''&&  \
+    /usr/bin/ssh-keygen -t dsa -f /root/.ssh/id_dsa && \
+    /usr/bin/cp /root/.ssh/id_dsa.pub /root/.ssh/authorized_keys && \
+    /usr/bin/echo "Please use the user \"root\" and this DSA private key to login:" && \
+    /usr/bin/cat /root/.ssh/id_dsa && \
     /usr/sbin/sshd -D
 
 EXPOSE 22
