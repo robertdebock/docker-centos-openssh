@@ -4,7 +4,7 @@ MAINTAINER Robert de Bock <robert@meinit.nl>
 
 LABEL Description="Base CentOS OpenSSH server image" Version="1.0"
 
-RUN yum -y install openssh openssh-server && yum -y clean all
+RUN yum -y install openssh openssh-server openssh-client && yum -y clean all
 
 CMD /usr/bin/ssh-keygen -t dsa -f /root/.ssh/id_dsa && \
     cat /root/.ssh/id_dsa | /usr/bin/tee /root/.ssh/authorized_keys && \
