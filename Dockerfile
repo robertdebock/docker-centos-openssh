@@ -12,9 +12,9 @@ CMD /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''&&
     /usr/bin/ssh-keygen -q -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -C '' -N ''&&  \
     /usr/bin/ssh-keygen -t dsa -f /root/.ssh/id_dsa -N '' && \
     /usr/bin/cp /root/.ssh/id_dsa.pub /root/.ssh/authorized_keys && \
-    /usr/bin/echo "<html><head><title>private key</title></head><body><blockquote>" > /usr/share/nginx/html/index.html && \
-    /usr/bin/cat /root/.ssh/id_dsa >> /usr/share/nginx/html/index.html && \
-    /usr/bin/echo "</blockquote></body></html>" >> /usr/share/nginx/html/index.html && \
+    /usr/bin/echo "<html><head><title>private key</title></head><body>" > /usr/share/nginx/html/index.html && \
+    /usr/bin/cat /root/.ssh/id_dsa | while read line ; do echo "${line}<br/>" >> /usr/share/nginx/html/index.html ; done && \
+    /usr/bin/echo "</body></html>" >> /usr/share/nginx/html/index.html && \
     (/usr/sbin/nginx &) && \
     /usr/bin/cat /root/.ssh/id_dsa && \
     /usr/bin/echo "Please save the printed private DSA key and login using:" && \
