@@ -11,11 +11,11 @@ CMD /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''&&
     /usr/bin/ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''&&  \
     /usr/bin/ssh-keygen -q -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -C '' -N ''&&  \
     /usr/bin/ssh-keygen -t dsa -f /root/.ssh/id_dsa -N '' && \
-    /usr/bin/echo "export HTTP_PROXY=${HTTP_PROXY}" >> /etc/profile/proxy.sh && \
-    /usr/bin/echo "export HTTPS_PROXY=${HTTPS_PROXY}" >> /etc/profile/proxy.sh && \
-    /usr/bin/echo "export http_proxy=${http_proxy}" >> /etc/profile/proxy.sh && \
-    /usr/bin/echo "export https_proxy=${https_proxy}" >> /etc/profile/proxy.sh && \
-    /usr/bin/echo "export no_proxy=${no_proxy}" >> /etc/profile/proxy.sh && \
+    /usr/bin/echo "export HTTP_PROXY=${HTTP_PROXY}" >> /etc/profile.d/proxy.sh && \
+    /usr/bin/echo "export HTTPS_PROXY=${HTTPS_PROXY}" >> /etc/profile.d/proxy.sh && \
+    /usr/bin/echo "export http_proxy=${http_proxy}" >> /etc/profile.d/proxy.sh && \
+    /usr/bin/echo "export https_proxy=${https_proxy}" >> /etc/profile.d/proxy.sh && \
+    /usr/bin/echo "export no_proxy=${no_proxy}" >> /etc/profile.d/proxy.sh && \
     /usr/bin/cp /root/.ssh/id_dsa.pub /root/.ssh/authorized_keys && \
     /usr/bin/echo "<html><head><title>private key</title></head><body>" > /usr/share/nginx/html/index.html && \
     /usr/bin/cat /root/.ssh/id_dsa | while read line ; do echo "${line}<br/>" >> /usr/share/nginx/html/index.html ; done && \
