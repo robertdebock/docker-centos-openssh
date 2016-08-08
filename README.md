@@ -8,7 +8,7 @@ This container will generate new keys (host and user) at startup.
 ## Running the container.
 It's quite easy to start a container:
 
-    docker run -P -n docker-centos-openssh robertdebock/docker-centos-openssh
+    docker run -P --name docker-centos-openssh robertdebock/docker-centos-openssh
     
 A private key will be displayed, copy-pasts-save it, set the permissions to 0600.
 
