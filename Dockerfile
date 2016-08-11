@@ -10,7 +10,7 @@ CMD test -f /etc/ssh/ssh_host_ecdsa_key || /usr/bin/ssh-keygen -q -t ecdsa -f /e
     test -f /etc/ssh/ssh_host_rsa_key || /usr/bin/ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''&&  \
     test -f /etc/ssh/ssh_host_ed25519_key || /usr/bin/ssh-keygen -q -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -C '' -N ''&&  \
     test -f /root/.ssh/id_dsa || /usr/bin/ssh-keygen -t dsa -f /root/.ssh/id_dsa -N '' && \
-    test -f /root/.ssh/id_dsa.pub || ssh-keygen -y -t dsa -f ~/.ssh/id_dsa > ~/.ssh/id_dsa.pub
+    test -f /root/.ssh/id_dsa.pub || ssh-keygen -y -t dsa -f ~/.ssh/id_dsa > ~/.ssh/id_dsa.pub && \
     test -f /root/.ssh/authorized_keys || /usr/bin/cp /root/.ssh/id_dsa.pub /root/.ssh/authorized_keys && \
     /usr/bin/cat /root/.ssh/id_dsa && \
     /usr/bin/echo "" && \
