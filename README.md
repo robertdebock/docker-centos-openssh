@@ -26,3 +26,31 @@ That ${ip} depends on where the container is running.
 Simply save your key in a folder like "dot-ssh" and map the volumes:
 
     docker run -P -v $(pwd)/dot-ssh:/root/.ssh/
+
+## Using with docker-compose
+You may setup a testlab, for example for Ansible or Rundeck, using Docker-compose, like so:
+
+    version: '2'
+    services:
+      server:
+        image: robertdebock/docker-centos-openssh
+        volumes:
+          - /path/to/dot-ssh:/root/.ssh/
+        links:
+          - client1
+          - client2
+          - client3
+        ports:
+          - 22:22
+      client1:
+        image: robertdebock/docker-centos-openssh
+        volumes:
+          - /path/to/dot-ssh:/root/.ssh/
+      client2:
+        image: robertdebock/docker-centos-openssh
+        volumes:
+          - /path/to/dot-ssh:/root/.ssh/
+      client3:
+        image: robertdebock/docker-centos-openssh
+        volumes:
+          - /path/to/dot-ssh:/root/.ssh/
