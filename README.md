@@ -1,3 +1,5 @@
+[![](https://images.microbadger.com/badges/image/robertdebock/docker-centos-openssh.svg)](http://microbadger.com/images/robertdebock/docker-centos-openssh "Get your own image badge on microbadger.com")
+
 # docker-centos-openssh
 A CentOS 7 container that runs openssh server
 
