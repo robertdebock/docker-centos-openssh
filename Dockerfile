@@ -2,9 +2,10 @@ FROM centos
 
 MAINTAINER Robert de Bock <robert@meinit.nl>
 
-LABEL Description="Base CentOS OpenSSH server image" Version="1.0"
+LABEL Description="Base CentOS OpenSSH server image" Version="7.2.1511"
 
-RUN yum -y install openssh openssh-server openssh-clients epel-release && yum -y clean all
+RUN yum -y install openssh openssh-server openssh-clients epel-release && \
+    yum -y clean all
 
 CMD test -f /etc/ssh/ssh_host_ecdsa_key || /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''&&  \
     test -f /etc/ssh/ssh_host_rsa_key || /usr/bin/ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''&&  \
