@@ -1,7 +1,7 @@
 [![](https://images.microbadger.com/badges/image/robertdebock/docker-centos-openssh.svg)](http://microbadger.com/images/robertdebock/docker-centos-openssh "Get your own image badge on microbadger.com")
 
 # docker-centos-openssh
-A CentOS 7 container that runs openssh server
+A CentOS 7 container that runs openssh server.
 
 You can use this container to quickly startup a "machine" and test things, or it can be used as an SSH server, maybe a stepstone.
 
@@ -22,7 +22,7 @@ And connect to the container:
 
     ssh -p ${port} -i ${savedkey} root@${ip}
 
-That ${ip} depends on where the container is running.
+The ${ip} depends on where the container is running.
 
 ## Using your own private key
 Simply save your key in a folder like "dot-ssh" and map the volumes:
