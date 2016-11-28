@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7.2.1511
 
 MAINTAINER Robert de Bock <robert@meinit.nl>
 
