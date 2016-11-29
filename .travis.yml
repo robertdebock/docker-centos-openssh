@@ -6,7 +6,11 @@ services:
 install:
   - mkdir .ssh && chmod 700 .ssh
   - ssh-keygen -t dsa -N "" -f .ssh/id_dsa
-  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh 
+  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
+  - sleep 5
+  - docker logs $(docker ps -ql)
+  - docker ps
+  - ssh -o Port=2222 localhost "id"
 
 script:
   - echo "Runnning tests." ; bats tests/
