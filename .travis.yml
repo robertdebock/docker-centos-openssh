@@ -6,14 +6,10 @@ services:
 install:
   - mkdir .ssh && chmod 700 .ssh
   - ssh-keygen -t rsa -N "" -f .ssh/id_rsa
-  - cat .ssh/id_rsa
   - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
   - sleep 5
   - docker logs $(docker ps -ql)
-  - docker run -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh cat /root/.ssh/id_rsa
-  - docker run -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh ls -l /root/.ssh
-  - ls -l
-  - ls -l .ssh/
+  - docker run -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh /bin/bash -c "ls -l /root/.ssh/ ; chown -R root:root /root/.ssh/ ; ls -l /root/.ssh"
   - ssh -i .ssh/id_rsa -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "id"
 
 script:
