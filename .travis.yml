@@ -10,7 +10,7 @@ install:
   - sleep 5
   - docker logs $(docker ps -ql)
   - docker ps
-  - ssh -o Port=2222 localhost "id"
+  - ssh -o Port=2222 localhost -o "StrictHostKeyChecking no" "id"
 
 script:
   - echo "Runnning tests." ; bats tests/
