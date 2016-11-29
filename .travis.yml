@@ -6,6 +6,7 @@ services:
 install:
   - mkdir .ssh && chmod 700 .ssh
   - ssh-keygen -t dsa -N "" -f .ssh/id_dsa
+  - cat .ssh/id_dsa
   - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
   - sleep 5
   - docker logs $(docker ps -ql)
