@@ -13,6 +13,7 @@ CMD test -f /etc/ssh/ssh_host_ecdsa_key || /usr/bin/ssh-keygen -q -t ecdsa -f /e
     test -f /root/.ssh/id_rsa || /usr/bin/ssh-keygen -t rsa -f /root/.ssh/id_rsa -N '' && \
     test -f /root/.ssh/id_rsa.pub || ssh-keygen -y -t rsa -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub && \
     test -f /root/.ssh/authorized_keys || /usr/bin/cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys && \
+    chown -R root:root /root/.ssh && \
     /usr/bin/cat /root/.ssh/id_rsa && \
     /usr/bin/echo "" && \
     /usr/bin/echo "Please save the printed private RSA key and login using:" && \
