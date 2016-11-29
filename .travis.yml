@@ -5,13 +5,13 @@ services:
 
 install:
   - mkdir .ssh && chmod 700 .ssh
-  - ssh-keygen -t dsa -N "" -f .ssh/id_dsa
-  - cat .ssh/id_dsa
+  - ssh-keygen -t rsa -N "" -f .ssh/id_rsa
+  - cat .ssh/id_rsa
   - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
   - sleep 5
   - docker logs $(docker ps -ql)
   - docker ps
-  - ssh -i .ssh/id_dsa -o Port=2222 root@localhost -o "StrictHostKeyChecking no" "id"
+  - ssh -i .ssh/id_rsa -o Port=2222 root@localhost -o "StrictHostKeyChecking no" "id"
 
 script:
   - echo "Runnning tests." ; bats tests/
