@@ -1,4 +1,4 @@
-@test "Waiting for the container to be ready."
+@test "Waiting for the container to be ready." {
   run sleep 3
   [ "${status}" -eq 0 ]
 }
