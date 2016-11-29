@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - mkdir .ssh && chmod 700 .ssh
+  - ssh-keygen -t rsa -N "" -f .ssh/id_rsa
+  - cat .ssh/id_rsa
+  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
+  - sleep 3
+  - docker logs $(docker ps -ql)
+  - ssh -vvv -i .ssh/id_rsa -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "id"
+
+script:
+  - echo "Runnning tests." ; bats tests/
+
+notifications:
+  email: false
