@@ -10,7 +10,7 @@ install:
   - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
   - sleep 3
   - docker logs $(docker ps -ql)
-  - ssh -vvv -i .ssh/id_rsa -o Port=2222 root@localhost -o "StrictHostKeyChecking no" "id"
+  - ssh -vvv -i .ssh/id_rsa -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "id"
 
 script:
   - echo "Runnning tests." ; bats tests/
