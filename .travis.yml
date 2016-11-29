@@ -4,7 +4,7 @@ services:
   - docker
 
 install:
-  - ssh-keygen -t rsa -N ""
+  - ssh-keygen -t rsa -N "" -f $(pwd)/.ssh/id_rsa
   - docker run -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh 
   - ssh -o Port=2222 localhost "id"
 
