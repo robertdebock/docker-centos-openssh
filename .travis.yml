@@ -7,7 +7,7 @@ install:
   - mkdir .ssh && chmod 700 .ssh
   - ssh-keygen -t rsa -N "" -f .ssh/id_rsa
   - cp .ssh/id_rsa id_rsa.priv
-  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
+  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh:7.3.1611
 
 script:
   - echo "Runnning tests." ; bats tests/
