@@ -27,7 +27,7 @@ The ${ip} depends on where the container is running.
 ## Using your own private key
 Simply save your key in a folder like "dot-ssh" and map the volumes:
 
-    docker run -P -v $(pwd)/dot-ssh:/root/.ssh/ robertdebock/docker-centos-openssh
+    docker run -P -v $(pwd)/./ssh:/root/.ssh/ robertdebock/docker-centos-openssh
 
 ## Using with docker-compose
 You may setup a testlab, for example for Ansible or Rundeck, using Docker-compose, like so:
