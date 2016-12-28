@@ -4,6 +4,12 @@ MAINTAINER Robert de Bock <robert@meinit.nl>
 
 LABEL Description="Base CentOS OpenSSH server image" Version="7.3.1611"
 
+ENV TINI_VERSION v0.13.2
+
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+
+RUN chmod +x /tini
+
 RUN yum -y install openssh openssh-server openssh-clients epel-release && \
     yum -y clean all
 
@@ -21,3 +27,5 @@ CMD test -f /etc/ssh/ssh_host_ecdsa_key || /usr/bin/ssh-keygen -q -t ecdsa -f /e
     /usr/sbin/sshd -D
 
 EXPOSE 22
+
+ENTRYPOINT ["/tini", "--"]
