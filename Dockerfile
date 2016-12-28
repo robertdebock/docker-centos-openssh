@@ -13,6 +13,10 @@ RUN chmod +x /tini
 RUN yum -y install openssh openssh-server openssh-clients epel-release && \
     yum -y clean all
 
+EXPOSE 22
+
+ENTRYPOINT ["/tini", "--"]
+
 CMD test -f /etc/ssh/ssh_host_ecdsa_key || /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''&&  \
     test -f /etc/ssh/ssh_host_rsa_key || /usr/bin/ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''&&  \
     test -f /etc/ssh/ssh_host_ed25519_key || /usr/bin/ssh-keygen -q -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -C '' -N ''&&  \
@@ -25,7 +29,3 @@ CMD test -f /etc/ssh/ssh_host_ecdsa_key || /usr/bin/ssh-keygen -q -t ecdsa -f /e
     /usr/bin/echo "Please save the printed private RSA key and login using:" && \
     /usr/bin/echo "\"ssh -i \${savedkey} root@\${ipaddress}\"" && \
     /usr/sbin/sshd -D
-
-EXPOSE 22
-
-ENTRYPOINT ["/tini", "--"]
