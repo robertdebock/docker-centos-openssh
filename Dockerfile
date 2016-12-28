@@ -2,7 +2,7 @@ FROM centos:7.3.1611
 
 MAINTAINER Robert de Bock <robert@meinit.nl>
 
-LABEL Description="Base CentOS OpenSSH server image" Version="7.3.1611"\
+LABEL Description="Base CentOS OpenSSH server image" Version="7.3.1611"
 
 EXPOSE 22
 
