@@ -18,8 +18,10 @@
   [ "${status}" -eq 0 ]
 }
 
+containerpid=$(docker inspect --format='{{.State.Pid}}' $(docker ps -ql))
+
 @test "Killing the container with CTRL and C." {
-  run kill -SIGINT $(docker inspect --format='{{.State.Pid}}' $(docker ps -ql))
+  run kill -SIGINT ${containerpid}
   [ "${status}" -eq 0 ]
 }
 
