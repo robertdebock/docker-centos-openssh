@@ -19,13 +19,13 @@
 }
 
 @test "Killing the container with CTRL and C." {
+  skip
   run kill -SIGINT $(docker inspect --format='{{.State.Pid}}' $(docker ps -ql))
   [ "${status}" -eq 0 ]
-  skip
 }
 
 @test "Checking if container is killed." {
+  skip
   result="$(docker ps | wc -l)"
   [ "$result" -eq 1 ]
-  skip
 }
