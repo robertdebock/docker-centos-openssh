@@ -23,6 +23,10 @@
   [ "${status}" -eq 0 ]
 }
 
+@test "Waiting 3 seconds for the container to stop." {
+  run sleep 3
+}
+
 @test "Checking if container is killed." {
   result="$(docker ps | wc -l | awk '{print $1}')"
   [ "$result" -eq 1 ]
