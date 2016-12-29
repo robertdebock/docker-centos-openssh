@@ -12,11 +12,5 @@ install:
 script:
   - echo "Runnning tests." ; bats tests/
 
-after_script:
-  - docker inspect --format='{{.State.Pid}}' $(docker ps -ql) ; echo $?
-  - docker ps | wc -l
-  - kill -SIGINT $(docker inspect --format='{{.State.Pid}}' $(docker ps -ql)) ; echo $?
-  - docker ps | wc -l
-
 notifications:
   email: false
