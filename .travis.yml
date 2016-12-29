@@ -11,10 +11,6 @@ install:
 
 script:
   - echo "Runnning tests." ; bats tests/
-  - docker ps
-  - docker ps -a
-  - docker ps | wc -l
-
 
 notifications:
   email: false
