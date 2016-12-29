@@ -18,12 +18,16 @@
   [ "${status}" -eq 0 ]
 }
 
-#@test "Killing the container with CTRL and C." {
-#  run kill -SIGINT $(docker inspect --format='{{.State.Pid}}' $(docker ps -ql))
-#  [ "${status}" -eq 0 ]
-#}
+@test "Killing the container with CTRL and C." {
+  run sudo kill -SIGINT $(docker inspect --format='{{.State.Pid}}' $(docker ps -ql))
+  [ "${status}" -eq 0 ]
+}
 
-#@test "Checking if container is killed." {
-#  result="$(docker ps | wc -l)"
-#  [ "$result" -eq 1 ]
-#}
+@test "Waiting 3 seconds for the container to stop." {
+  run sleep 3
+}
+
+@test "Checking if container is killed." {
+  result="$(docker ps | wc -l | awk '{print $1}')"
+  [ "$result" -eq 1 ]
+}
