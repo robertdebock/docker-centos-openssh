@@ -10,7 +10,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
 EXPOSE 22
 
-RUN yum -y install openssh openssh-server openssh-clients epel-release && \
+RUN yum -y install openssh openssh-server openssh-clients && \
     yum -y clean all
 
 ADD start.sh /start.sh
