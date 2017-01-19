@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/robertdebock/docker-centos-openssh.svg?branch=master)](https://travis-ci.org/robertdebock/docker-centos-openssh) [![](https://images.microbadger.com/badges/image/robertdebock/docker-centos-openssh.svg)](http://microbadger.com/images/robertdebock/docker-centos-openssh "Get your own image badge on microbadger.com")
 
 # docker-centos-openssh
-A CentOS 7.3.1611 container that runs openssh server.
+A CentOS 7 container that runs openssh server.
 
 You can use this container to quickly startup a "machine" and test things, or it can be used as an SSH server, maybe a stepstone.
 
