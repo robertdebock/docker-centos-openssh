@@ -9,7 +9,7 @@
 }
 
 @test "Logging in and checking CentOS Version." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "grep 7.3.1611 /etc/redhat-release"
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "grep 7 /etc/redhat-release"
   [ "${status}" -eq 0 ]
 }
 
