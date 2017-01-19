@@ -7,7 +7,8 @@ install:
   - mkdir .ssh && chmod 700 .ssh
   - ssh-keygen -t rsa -N "" -f .ssh/id_rsa
   - cp .ssh/id_rsa id_rsa.priv
-  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ robertdebock/docker-centos-openssh
+  - docker build -t $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_ID .
+  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_ID
 
 script:
   - echo "Runnning tests." ; bats tests/
