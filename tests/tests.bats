@@ -39,5 +39,10 @@
 
 @test "Checking if container is killed." {
   result="$(docker ps | wc -l | awk '{print $1}')"
-  [ "$result" -eq 1 ]
+  [ "$result" -eq 3 ]
+}
+
+@test "Logging in and running a simple command." {
+  run ssh -i id_rsa.priv -o Port=2322 -o "StrictHostKeyChecking no" root@localhost "id"
+  [ "${status}" -eq 0 ]
 }
