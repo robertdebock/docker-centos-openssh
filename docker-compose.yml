@@ -3,7 +3,7 @@ services:
   server:
     image: robertdebock/docker-centos-openssh
     volumes:
-      - $(pwd)/.ssh:/root/.ssh/
+      - ./.ssh:/root/.ssh/
     links:
       - client1
     ports:
@@ -11,4 +11,4 @@ services:
   client1:
     image: robertdebock/docker-centos-openssh
     volumes:
-      - $(pwd)/.ssh:/root/.ssh/
+      - ./.ssh:/root/.ssh/
