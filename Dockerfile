@@ -4,7 +4,7 @@ MAINTAINER Robert de Bock <robert@meinit.nl>
 
 LABEL Description="Base CentOS OpenSSH server image" CentOS="7.3.1611" OpenSSH="6.6.1p1-33.el7_3" Tini="0.13.2"
 
-ENV TINI_VERSION v0.13.2
+ENV TINI_VERSION v0.14.0
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
