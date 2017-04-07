@@ -10,7 +10,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
 EXPOSE 22
 
-RUN yum -y erase bash vim && \
+RUN yum -y erase vim && \
     yum -y update && \
     yum -y install openssh openssh-server openssh-clients && \
     yum -y clean all
