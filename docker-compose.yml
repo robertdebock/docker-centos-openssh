@@ -6,4 +6,4 @@ services:
     volumes:
       - ./.ssh:/root/.ssh/
     ports:
-      - "2322:22"
+      - "2222:22"
