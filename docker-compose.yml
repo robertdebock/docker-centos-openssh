@@ -5,12 +5,5 @@ services:
     build: .
     volumes:
       - ./.ssh:/root/.ssh/
-    links:
-      - client1
     ports:
       - "2322:22"
-  client1:
-    build: .
-    image: robertdebock/docker-centos-openssh
-    volumes:
-      - ./.ssh:/root/.ssh/
