@@ -46,8 +46,3 @@
   run ssh -i id_rsa.priv -o Port=2322 -o "StrictHostKeyChecking no" root@localhost "id"
   [ "${status}" -eq 0 ]
 }
-
-@test "Running Docker Lint on the Dockerfile." {
-  run docker run -it --rm --privileged -v `pwd`:/root/ projectatomic/dockerfile-lint dockerfile_lint -f Dockerfile
-  [ "${status}" -eq 0 ]
-}
