@@ -56,3 +56,14 @@ You may setup a testlab, for example for Ansible or Rundeck, using Docker-compos
         image: robertdebock/docker-centos-openssh
         volumes:
           - /path/to/dot-ssh:/root/.ssh/
+
+
+# Technologies used to build and test
+[Travis CI](https://travis-ci.org/robertdebock/docker-centos-openssh) is used to build, run and test the image.
+[Docker Hub](https://hub.docker.com/r/robertdebock/docker-centos-openssh/) is used to deploy the image to.
+This (building on Travis CI and publishing to Docker Hub) happens in parallel. On Travis CI, few project are used:
+- [Bats](https://github.com/sstephenson/bats) for testing.
+- [Docker Lint](https://github.com/projectatomic/dockerfile_lint) for finding weird errors.
+
+A bit weird about this setup is that when the build fails, an image is still published.
+
