@@ -16,9 +16,7 @@ RUN yum -y erase vim-minimal yum-plugin-ovl iputils libss && \
 
 ADD start.sh /start.sh
 
-RUN chmod +x /start.sh
-
-RUN chmod +x /tini
+RUN chmod +x /start.sh /tini
 
 ENTRYPOINT ["/tini", "-g", "--"]
 
