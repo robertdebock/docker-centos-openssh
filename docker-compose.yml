@@ -2,6 +2,7 @@ version: '2'
 services:
   server:
     image: robertdebock/docker-centos-openssh
+    build: .
     volumes:
       - ./.ssh:/root/.ssh/
     links:
@@ -9,6 +10,7 @@ services:
     ports:
       - "2322:22"
   client1:
+    build: .
     image: robertdebock/docker-centos-openssh
     volumes:
       - ./.ssh:/root/.ssh/
