@@ -9,7 +9,6 @@ install:
   - cp .ssh/id_rsa id_rsa.priv
   - docker-compose build
   - docker-compose up -d
-  - docker run -d -p 2222:22 -v $(pwd)/.ssh:/root/.ssh/ $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_ID
 
 script:
   - echo "Runnning tests." ; bats tests/
