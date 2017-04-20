@@ -54,6 +54,6 @@
 
 @test "Checking if container is killed." {
   result="$(docker ps | wc -l | awk '{print $1}')"
-  [ "$result" -eq 3 ]
+  [ "$result" -eq 1 ]
 }
 
