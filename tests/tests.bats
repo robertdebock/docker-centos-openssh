@@ -54,6 +54,6 @@
 
 @test "Checking if container is killed." {
   result=$(docker ps | grep docker-centos-openssh | wc -l | bc)
-  [ "${results}" -eq 0 ]
+  [ "${result}" -eq 0 ]
 }
 
