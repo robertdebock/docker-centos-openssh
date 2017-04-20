@@ -9,7 +9,6 @@ install:
   - cp .ssh/id_rsa id_rsa.priv
   - docker-compose build
   - docker-compose up -d
-  - docker ps
 
 script:
   - echo "Runnning tests." ; bats tests/
