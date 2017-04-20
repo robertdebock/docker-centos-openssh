@@ -49,7 +49,7 @@
 }
 
 @test "Waiting for the container to stop." {
-  run sleep 5
+  run sleep 10
 }
 
 @test "Checking if container is killed." {
