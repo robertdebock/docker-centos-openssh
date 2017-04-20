@@ -53,7 +53,7 @@
 }
 
 @test "Checking if container is killed." {
-  result="$(docker ps | wc -l | awk '{print $1}')"
-  [ "$result" -eq 1 ]
+  run ! docker ps | grep docker-centos-openssh
+  [ "${status}" -eq 0 ]
 }
 
