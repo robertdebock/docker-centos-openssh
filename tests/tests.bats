@@ -1,5 +1,5 @@
 @test "Waiting for the container to be ready." {
-  run sleep 3
+  run sleep 5
   [ "${status}" -eq 0 ]
 }
 
@@ -48,8 +48,8 @@
   [ "${status}" -eq 0 ]
 }
 
-@test "Waiting 3 seconds for the container to stop." {
-  run sleep 3
+@test "Waiting for the container to stop." {
+  run sleep 5
 }
 
 @test "Checking if container is killed." {
