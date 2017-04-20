@@ -11,7 +11,9 @@ install:
   - docker-compose up -d
 
 script:
+  - docker ps
   - echo "Runnning tests." ; bats tests/
+  - docker ps
   - echo "Running lint." ; docker run -it --rm --privileged -v $(pwd):/root/ projectatomic/dockerfile-lint dockerfile_lint --permissive -f Dockerfile
 
 notifications:
