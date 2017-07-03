@@ -32,7 +32,7 @@ Simply save your key in a folder like "dot-ssh" and map the volumes:
 ## Using with docker-compose
 You may setup a testlab, for example for Ansible or Rundeck, using Docker-compose, like so:
 
-    version: '2'
+    version: '3'
     services:
       server:
         image: robertdebock/docker-centos-openssh
@@ -43,7 +43,7 @@ You may setup a testlab, for example for Ansible or Rundeck, using Docker-compos
           - client2
           - client3
         ports:
-          - 22:22
+          - "2222:22"
       client1:
         image: robertdebock/docker-centos-openssh
         volumes:
