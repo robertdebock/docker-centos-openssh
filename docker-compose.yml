@@ -10,6 +10,6 @@ services:
   importkeys:
     image: robertdebock/docker-centos-openssh
     volumes:
-      - ./importkeys:/root/.ssh/
+      - ./tests/importkeys:/root/.ssh/
     ports:
       - "2223:22"
