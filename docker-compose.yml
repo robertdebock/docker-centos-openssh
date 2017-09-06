@@ -7,3 +7,9 @@ services:
       - ./.ssh:/root/.ssh/
     ports:
       - "2222:22"
+  importkeys:
+    image: robertdebock/docker-centos-openssh
+    volumes:
+      - ./importkeys:/root/.ssh/
+    ports:
+      - "2223:22"
