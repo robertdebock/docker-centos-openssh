@@ -33,7 +33,7 @@
 }
 
 @test "Logging in to container with hostmounted ssh keys." {
-  run ssh -i tests/hostkeys/id_rsa -o Port=2223 -o "StrictHostKeyChecking no" root@localhost "id"
+  run ssh -i tests/hostkeys/id_rsa -o Port=2223 -o "StrictHostKeyChecking no" -o "PasswordAuthentication no" root@localhost "id"
   [ "${status}" -eq 0 ]
 }
 
