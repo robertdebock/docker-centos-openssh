@@ -52,7 +52,12 @@
   [ "${status}" -eq 0 ]
 }
 
-@test "Killing the container with CTRL and C." {
+@test "Killing the most recent container with CTRL and C." {
+  run sudo kill -SIGINT $(docker inspect --format='{{.State.Pid}}' $(docker ps -ql))
+  [ "${status}" -eq 0 ]
+}
+
+@test "Killing the last container with CTRL and C." {
   run sudo kill -SIGINT $(docker inspect --format='{{.State.Pid}}' $(docker ps -ql))
   [ "${status}" -eq 0 ]
 }
