@@ -11,11 +11,8 @@ install:
   - docker-compose up -d
 
 script:
-  - echo "Runnning tests." ; bats tests/
+  - echo "Runnning tests." ; bats tests/:
+  - echo "Running lint." ; docker run -it --rm --privileged -v $(pwd):/root/ projectatomic/dockerfile-lint dockerfile_lint --permissive -f Dockerfile || exit 0
 
-after_script:
-  - echo "Running lint." ; docker run -it --rm --privileged -v $(pwd):/root/ projectatomic/dockerfile-lint dockerfile_lint --permissive -f Dockerfile
-  allow_failure: true
-  
 notifications:
   email: false
