@@ -2,7 +2,7 @@ FROM centos:7.4.1708
 
 MAINTAINER Robert de Bock <robert@meinit.nl>
 
-LABEL Description="Base CentOS OpenSSH server image" CentOS="7.3.1611" OpenSSH="6.6.1p1-33.el7_3" Tini="0.14.0" Name="CentOS OpenSSH" VERSION="1"
+LABEL Description="Base CentOS OpenSSH server image" CentOS="7.5.1708" OpenSSH="6.6.1p1-33.el7_3" Tini="0.14.0" Name="CentOS OpenSSH" VERSION="2"
 
 ENV TINI_VERSION v0.14.0
 
