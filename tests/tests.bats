@@ -14,7 +14,7 @@
 }
 
 @test "Logging in and checking root filesystem." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "df -t aufs /"
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "df -t overlay /"
   [ "${status}" -eq 0 ]
 }
 
