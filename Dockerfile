@@ -8,10 +8,9 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
 EXPOSE 22
 
-RUN yum -y erase vim-minimal yum-plugin-ovl iputils libss && \
+RUN yum -y erase vim-minimal iputils libss && \
     yum -y install openssh openssh-server openssh-clients && \
-    yum -y clean all && \
-    rm -rf /var/cache/yum
+    yum -y clean all
 
 ADD start.sh /start.sh
 
