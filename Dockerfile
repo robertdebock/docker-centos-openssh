@@ -10,7 +10,8 @@ EXPOSE 22
 
 RUN yum -y erase vim-minimal yum-plugin-ovl iputils libss && \
     yum -y install openssh openssh-server openssh-clients && \
-    yum -y clean all
+    yum -y clean all && \
+    rm -rf /var/cache/yum
 
 ADD start.sh /start.sh
 
