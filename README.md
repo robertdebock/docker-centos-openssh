@@ -66,4 +66,3 @@ This (building on Travis CI and publishing to Docker Hub) happens in parallel. O
 - [Docker Lint](https://github.com/projectatomic/dockerfile_lint) for finding weird errors.
 
 A bit weird about this setup is that when the build fails, an image is still published.
-

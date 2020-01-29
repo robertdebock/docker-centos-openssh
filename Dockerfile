@@ -1,6 +1,6 @@
-FROM centos:7.6.1810
+FROM centos:7.7.1908
 
-LABEL Maintainer="Robert de Bock <robert@meinit.nl>" Description="Base CentOS OpenSSH server image" CentOS="7.6.1810" OpenSSH="7.4p1-16.el7_5" Tini="0.18.0" Name="CentOS OpenSSH" VERSION="2"
+LABEL Maintainer="Robert de Bock <robert@meinit.nl>" Description="Base CentOS OpenSSH server image" CentOS="7.7.1908" OpenSSH="7.4p1-21.el7" Tini="0.18.0" Name="CentOS OpenSSH" VERSION="2"
 
 ENV TINI_VERSION v0.18.0
 
