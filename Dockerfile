@@ -14,6 +14,11 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
 EXPOSE 22
 
+# This containers function is specifically to run/test ssh, ignore hints
+# about having openssh in a Dockerfile.
+# "WARNING: installing SSH in a container is not recommended.
+# Do you really need SSH in this image?"
+# dockerfile_lint - ignore
 RUN yum -y erase vim-minimal iputils libss && \
     yum -y install openssh openssh-server openssh-clients && \
     yum -y clean all
