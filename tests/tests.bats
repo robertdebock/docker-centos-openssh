@@ -9,7 +9,7 @@
 }
 
 @test "Logging in and checking CentOS Version." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "grep 7 /etc/redhat-release"
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "grep 8 /etc/redhat-release"
   [ "${status}" -eq 0 ]
 }
 
@@ -18,8 +18,8 @@
   [ "${status}" -eq 0 ]
 }
 
-@test "Logging in and using yum to install screen." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "yum -y install screen"
+@test "Logging in and install screen." {
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "dnf -y install screen"
   [ "${status}" -eq 0 ]
 }
 
@@ -29,12 +29,12 @@
 }
 
 @test "Installing epel-release." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "yum -y install epel-release"
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "dnf -y install epel-release"
   [ "${status}" -eq 0 ]
 }
 
 @test "Installing rpmorphan." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "yum -y install rpmorphan"
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "dnf -y install rpmorphan"
   [ "${status}" -eq 0 ]
 }
 
