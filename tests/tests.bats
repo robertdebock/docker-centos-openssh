@@ -18,28 +18,18 @@
   [ "${status}" -eq 0 ]
 }
 
-@test "Logging in and install screen." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "dnf -y install screen"
+@test "Logging in and install lsof." {
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "dnf -y install lsof"
   [ "${status}" -eq 0 ]
 }
 
-@test "Logging in and using rpm to remove screen." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "rpm -e screen"
+@test "Logging in and using rpm to remove lsof." {
+  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "rpm -e lsof"
   [ "${status}" -eq 0 ]
 }
 
 @test "Installing epel-release." {
   run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "dnf -y install epel-release"
-  [ "${status}" -eq 0 ]
-}
-
-@test "Installing rpmorphan." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "dnf -y install rpmorphan"
-  [ "${status}" -eq 0 ]
-}
-
-@test "Running rpmorphan." {
-  run ssh -i id_rsa.priv -o Port=2222 -o "StrictHostKeyChecking no" root@localhost "! rpmorphan | grep '[a-z]'"
   [ "${status}" -eq 0 ]
 }
 
@@ -56,4 +46,3 @@
   result=$(docker ps | grep docker-centos-openssh | wc -l | bc)
   [ "${result}" -eq 0 ]
 }
-
