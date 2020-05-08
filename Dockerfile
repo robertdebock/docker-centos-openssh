@@ -3,12 +3,12 @@ FROM centos:8
 LABEL Maintainer="Robert de Bock <robert@meinit.nl>"
 LABEL Description="Base CentOS OpenSSH server image"
 LABEL CentOS="8"
-LABEL OpenSSH="7.4p1-21.el7"
-LABEL Tini="0.18.0"
+LABEL OpenSSH="8.0p1"
+LABEL Tini="0.19.0"
 LABEL Name="CentOS OpenSSH"
 LABEL VERSION="2"
 
-ENV TINI_VERSION v0.18.0
+ENV TINI_VERSION v0.19.0
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 
