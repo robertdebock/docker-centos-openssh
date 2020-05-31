@@ -2,7 +2,7 @@
 
 A CentOS container that runs openssh server.
 
-[![Build Status](https://travis-ci.org/robertdebock/docker-centos-openssh.svg?branch=master)](https://travis-ci.org/robertdebock/docker-centos-openssh) [![](https://images.microbadger.com/badges/image/robertdebock/docker-centos-openssh.svg)](http://microbadger.com/images/robertdebock/docker-centos-openssh "Get your own image badge on microbadger.com")
+[![Build Status](https://travis-ci.com/robertdebock/docker-centos-openssh.svg?branch=master)](https://travis-ci.com/robertdebock/docker-centos-openssh) [![](https://images.microbadger.com/badges/image/robertdebock/docker-centos-openssh.svg)](http://microbadger.com/images/robertdebock/docker-centos-openssh "Get your own image badge on microbadger.com")
 
 You can use this container to quickly startup a "machine" and test things, or it can be used as an SSH server, maybe a stepstone.
 
@@ -72,7 +72,7 @@ services:
 
 # Technologies used to build and test
 
-- [Travis CI](https://travis-ci.org/robertdebock/docker-centos-openssh) is used to build, run and test the image.
+- [Travis CI](https://travis-ci.com/robertdebock/docker-centos-openssh) is used to build, run and test the image.
 - [Docker Hub](https://hub.docker.com/r/robertdebock/docker-centos-openssh/) is used to deploy the image to.
 
 Building on Travis CI and publishing to Docker Hub happens in parallel. On Travis CI, few project are used:
