@@ -15,6 +15,14 @@ It's quite easy to start a container:
 ```bash
 docker run -P robertdebock/docker-centos-openssh
 ```
+
+For Podman, please use:
+
+```bash
+podman run --cap-add AUDIT_WRITE -P robertdebock/docker-centos-openssh
+```
+
+(The `--cap-add AUDIT_WRITE` is added to overcome an [issue](https://bugzilla.redhat.com/show_bug.cgi?id=1923728).)
     
 A private key will be displayed, copy-pasts-save it, set the permissions to 0600.
 
