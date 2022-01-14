@@ -7,7 +7,7 @@ LABEL OpenSSH="8.0p1"
 LABEL Tini="0.19.0"
 LABEL Name="CentOS OpenSSH"
 LABEL VERSION="2"
-LABEL build_date="2022-01-03"
+LABEL build_date="2022-01-14"
 
 ENV TINI_VERSION v0.19.0
 
