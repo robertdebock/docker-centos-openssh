@@ -1,4 +1,4 @@
-/bin/bash
+#!/bin/bash
 
 # Making all required files if they are not existing. (This means
 # you may add a Docker volume on /etc/ssh or /root to insert your

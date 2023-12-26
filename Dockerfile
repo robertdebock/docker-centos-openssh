@@ -1,5 +1,7 @@
 FROM centos:8
 
+ARG TARGETARCH
+
 LABEL Maintainer="Robert de Bock <robert@meinit.nl>"
 LABEL Description="Base CentOS OpenSSH server image"
 LABEL CentOS="8"
@@ -11,9 +13,14 @@ LABEL build_date="2023-06-13"
 
 ENV TINI_VERSION v0.19.0
 
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-${TARGETARCH} /tini
 
 EXPOSE 22
+
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+
 
 # This containers function is specifically to run/test ssh, ignore hints
 # about having openssh in a Dockerfile.
