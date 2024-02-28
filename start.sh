@@ -2,7 +2,7 @@
 
 # Making all required files if they are not existing. (This means
 # you may add a Docker volume on /etc/ssh or /root to insert your
-# own files.
+# own files.)
 test -f /etc/ssh/ssh_host_ecdsa_key || /usr/bin/ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -C '' -N ''
 test -f /etc/ssh/ssh_host_rsa_key || /usr/bin/ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
 test -f /etc/ssh/ssh_host_ed25519_key || /usr/bin/ssh-keygen -q -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -C '' -N ''
@@ -18,6 +18,9 @@ chown -R root:root /root/.ssh
 /usr/bin/echo ""
 /usr/bin/echo "Please save the printed private RSA key and login using:"
 /usr/bin/echo "\"ssh -i \${savedkey} root@\${ipaddress}\""
+
+# Remove /run/nologin, normally removed by systemd-user-sessions.
+rm /run/nologin
 
 # Now start ssh.
 /usr/sbin/sshd -D
