@@ -1,13 +1,13 @@
-FROM centos:8
+FROM quay.io/centos/centos:stream9
 
 LABEL Maintainer="Robert de Bock <robert@meinit.nl>"
 LABEL Description="Base CentOS OpenSSH server image"
-LABEL CentOS="8"
-LABEL OpenSSH="8.0p1"
+LABEL CentOS="9"
+LABEL OpenSSH="8.7p1"
 LABEL Tini="0.19.0"
 LABEL Name="CentOS OpenSSH"
 LABEL VERSION="2"
-LABEL build_date="2024-02-28"
+LABEL build_date="2024-02-29"
 
 ENV TINI_VERSION v0.19.0
 
