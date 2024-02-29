@@ -19,8 +19,5 @@ chown -R root:root /root/.ssh
 /usr/bin/echo "Please save the printed private RSA key and login using:"
 /usr/bin/echo "\"ssh -i \${savedkey} root@\${ipaddress}\""
 
-# Remove /run/nologin, normally removed by systemd-user-sessions.
-rm /run/nologin
-
 # Now start ssh.
 /usr/sbin/sshd -D
